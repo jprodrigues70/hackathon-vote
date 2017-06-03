@@ -8,12 +8,15 @@
   <body>
     <?php include_once('includes/_headeradmin.inc') ?>
     <section class="container">
-      <h1>Times</h1>
-
+      <?php Session::msg(); ?>
+      <div class="top-bar">
+          <h1>Times</h1>
+          <a href="new-team" class="btn btn-add">Adicionar</a>
+      </div>
       <table class="gt-table">
           <thead>
               <tr>
-                  <th>Critério</th>
+                  <th>Time</th>
                   <th>Ações</th>
               </tr>
           </thead>

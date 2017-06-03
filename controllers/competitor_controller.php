@@ -10,11 +10,12 @@
           if (session_status() != PHP_SESSION_ACTIVE) session_start();
           if (!empty($_SESSION['on']) && $_SESSION['level'] == 90) {
             $this->actions = ['delete', 'store'];
+            $this->location = '../competitors';
           }
           parent::__construct();
         }
     }
 
     $cmp = new Competitor_controller();
-    $competitors = $cmp->loadAll();
+    $competitors = $cmp->loadAll('teams_id ASC');
     $competitor = $cmp->one();

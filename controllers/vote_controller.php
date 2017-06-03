@@ -6,16 +6,21 @@
 
         public $fillneeded = ['teams_id' => 'equipe', 'grade' => 'nota', 'criterias_id' => 'critério'];
         public $actions = [];
+        public $location = '../teams';
 
         function __construct() {
           if (session_status() != PHP_SESSION_ACTIVE) session_start();
           if (!empty($_SESSION['on']) && $_SESSION['level'] == 50) {
             $this->actions = ['store'];
+            $this->location = '../teams';
           }
+          if (!empty($_SESSION['on']) && $_SESSION['level'] == 90) {
+              $this->location = '../team';
+          }
+
           parent::__construct();
         }
 
-        public $location = '../teams';
 
         public function store($location = false) {
             $_REQUEST['users_id'] = $_SESSION['id'];

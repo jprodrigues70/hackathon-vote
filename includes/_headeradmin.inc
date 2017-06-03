@@ -10,6 +10,14 @@
           <?php if(Session::permission(90)): ?>
           <a href="criterias"><li <?php Session::is_active('criterias'); ?>>Critérios</li></a>
           <a href="team"><li <?php Session::is_active('team'); ?>>Equipes</li></a>
+          <a href="competitors"><li <?php Session::is_active('competitors'); ?>>Competidores</li></a>
+          <li class="dropdown-right" role="button" tabindex="0">
+              <span>Páginas do Juri</span>
+              <ul>
+                  <a href="teams" target="_blank"><li>Times</li></a>
+                  <a href="criteria" target="_blank"><li>Critérios</li></a>
+              </ul>
+          </li>
           <a href="controllers/user_controller?logout"><li>Sair</li></a>
           <?php else: ?>
           <a href="login"><li>Login</li></a>

@@ -11,6 +11,7 @@
           if (session_status() != PHP_SESSION_ACTIVE) session_start();
           if (!empty($_SESSION['on']) && $_SESSION['level'] == 90) {
             $this->actions = ['delete', 'store'];
+            $this->location = '../criterias';
           }
           parent::__construct();
         }

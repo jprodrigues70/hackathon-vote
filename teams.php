@@ -35,11 +35,11 @@
                           <input type="hidden" name="teams_id" value="<?php Prints::it($team, 'id'); ?>">
                           <?php foreach ($criterias as $key => $criteria): ?>
                               <input type="hidden" name="criterias_id[]" value="<?php Prints::it($criteria, 'id'); ?>">
-                              <label class="text-left" for="c<?php Prints::it($criteria, 'id') ?>">
+                              <label class="text-left" for="c<?php Prints::it($criteria, 'id') ?>t<?php Prints::it($team, 'id'); ?>">
                                   <h3><?php Prints::it($criteria, 'title') ?></h3>
                               </label>
-                              <input data-mirror="c<?php Prints::it($criteria, 'id') ?>" type="range" name="grade[]" min="2" max="10" oninput="">
-                              <span id="c<?php Prints::it($criteria, 'id') ?>" class="tag info">0</span>
+                              <input data-mirror="c<?php Prints::it($criteria, 'id') ?>t<?php Prints::it($team, 'id'); ?>" type="range" name="grade[]" min="2" max="10" value="10">
+                              <span id="c<?php Prints::it($criteria, 'id') ?>t<?php Prints::it($team, 'id'); ?>" class="tag info">10</span>
                           <?php endforeach; ?>
                           <button class="btn success full" type="submit" name="action" value="store">VOTAR</button>
                       </form>

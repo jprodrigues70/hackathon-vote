@@ -4,11 +4,13 @@
 
     class Team_controller extends \Controller\Base {
         public $actions = [];
+        public $location = '../teams.php';
 
         function __construct() {
           if (session_status() != PHP_SESSION_ACTIVE) session_start();
           if (!empty($_SESSION['on']) && $_SESSION['level'] == 90) {
             $this->actions = ['delete', 'store'];
+            $this->location = '../team.php';    
           }
           parent::__construct();
         }

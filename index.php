@@ -56,6 +56,7 @@
         </tbody>
       </table>
     </section>
+    <?php include_once('includes/_footer.inc') ?>
     <script type="text/javascript" src="bower_components/gaintime/js/gaintime.min.js"></script>
   </body>
 </html>

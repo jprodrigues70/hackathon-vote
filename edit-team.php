@@ -13,9 +13,9 @@
       <?php include_once('includes/_headeradmin.inc') ?>
       <section>
         <div class="top-bar">
-          <h2>Editar Critério</h2>
+          <h2>Editar Time</h2>
         </div>
-        <?php include_once('includes/forms/criteria.inc') ?>
+        <?php include_once('includes/forms/team.inc') ?>
       </section>
       <?php include_once('includes/_footer.inc') ?>
     <script type="text/javascript" src="bower_components/gaintime/js/gaintime.min.js"></script>
