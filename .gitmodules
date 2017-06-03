@@ -1,3 +1,3 @@
 [submodule "heart"]
 	path = heart
-	url = https://github.com/GainTime/heart.git
+    url = git@github.com:GainTime/heart.git
