@@ -44,6 +44,4 @@
         }
     }
 
-    $vot = new Vote_controller();
-    $votes = $vot->loadAll();
-    $vote = $vot->one();
+    $vote = new Vote_controller();

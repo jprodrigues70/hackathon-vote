@@ -1,4 +1,4 @@
-<?php $contexts = ['competitor', 'criteria']; ?>
+<?php $contexts = ['competitor', 'criteria', 'vote']; ?>
 <?php require_once('heart/pulse.php'); ?>
 <?php Session::is_up(); ?>
 <!DOCTYPE html>
@@ -14,7 +14,8 @@
       <div class="flex-box">
 
           <?php foreach ($teams as $key => $team): ?>
-          <div class="card col" data-modal="team<?php Prints::it($team, 'id'); ?>">
+          <?php $voted = $vote->selectIt(['teams_id' => $team->id, 'users_id' => $_SESSION['id']], 'id ASC', '1'); ?>
+          <div <?php if (!empty($voted)) echo 'disabled'; ?> class="card col" data-modal="team<?php Prints::it($team, 'id'); ?>">
               <h3><?php Prints::it($team, 'name') ?></h3>
               <ul>
                 <?php foreach ($competitors as $key => $competitor): ?>
