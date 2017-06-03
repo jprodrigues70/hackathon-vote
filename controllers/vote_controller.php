@@ -5,8 +5,15 @@
     class Vote_controller extends \Controller\Base {
 
         public $fillneeded = ['teams_id' => 'equipe', 'grade' => 'nota', 'criterias_id' => 'critério'];
+        public $actions = [];
 
-        public $actions = ['store'];
+        function __construct() {
+          if (session_status() != PHP_SESSION_ACTIVE) session_start();
+          if (!empty($_SESSION['on']) && $_SESSION['level'] == 50) {
+            $this->actions = ['store'];
+          }
+          parent::__construct();
+        }
 
         public $location = '../teams';
 

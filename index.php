@@ -5,7 +5,11 @@
     <?php include_once('includes/_head.inc') ?>
   </head>
   <body class="panel">
-    <?php include_once('includes/_header.inc') ?>
+    <?php if (Session::permission(90)): ?>
+        <?php include_once('includes/_headeradmin.inc') ?>
+    <?php else: ?>
+        <?php include_once('includes/_header.inc') ?>
+    <?php endif; ?>
 
     <section>
       <h1>Ranking</h1>

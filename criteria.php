@@ -1,3 +1,4 @@
+<?php $contexts = ['team', 'competitor']; ?>
 <?php require_once('heart/pulse.php'); ?>
 <?php Session::is_up(); ?>
 <!DOCTYPE html>
@@ -10,36 +11,35 @@
     <section class="container">
       <h1>Critérios</h1>
       <div class="content-align">
-          <!-- start first criteria -->
-          <div>
-              <h3>Acessibilidade</h3>
+          <?php foreach ($criterias as $key => $criteria): ?>
 
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <div class="full">
+              <h3><?php Prints::it($criteria, 'title') ?></h3>
 
-              <span class="btn success" data-modal="criteria1">Votar</span>
+              <p><?php Prints::it($criteria, 'description') ?></p>
+
+              <span class="btn success" data-modal="criteria<?php Prints::it($criteria, 'id'); ?>">Votar</span>
           </div>
           <div class="gt-modal">
-              <div id="criteria1" class="modal">
+              <div id="criteria<?php Prints::it($criteria, 'id'); ?>" class="modal">
                   <button class="modal-close" type="button" name="button">×</button>
                   <div class="modal-header">
-                      <h1>Acessibilidade</h1>
+                      <h1><?php Prints::it($criteria, 'title') ?></h1>
                   </div>
                   <div class="modal-body">
                       <form class="gt-form text-center" action="index.html" method="post">
-                          <label class="text-left" for="e1">Equipe 1</label>
-                          <input data-mirror="e1" type="range" name="grade[]" min="2" max="10" oninput="">
-                          <span id="e1" class="tag info">10</span>
+                          <?php foreach ($teams as $key => $team): ?>
+                              <label class="text-left" for="e1"><?php Prints::it($team, 'name') ?></label>
+                              <input data-mirror="e1" type="range" name="grade[]" min="2" max="10" oninput="">
+                              <span id="e1" class="tag info">10</span>
+                          <?php endforeach; ?>
                           <button class="btn success full" type="submit" name="action" value="store">VOTAR</button>
                       </form>
                   </div>
               </div>
           </div>
           <!-- end first criteria -->
+          <?php endforeach; ?>
       </div>
     </section>
 
