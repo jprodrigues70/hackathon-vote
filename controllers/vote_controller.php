@@ -4,11 +4,11 @@
 
     class Vote_controller extends \Controller\Base {
 
-        public $fillneeded = ['username' => 'username'];
+        public $fillneeded = ['users_id' => 'eleitor', 'teams_id' => 'equipe', 'value' => 'nota', 'criterias_id' => 'critério'];
 
         public $actions = ['login', 'logout'];
     }
 
-    $obj = new User_controller();
-    $users = $obj->loadAll();
-    $user = $obj->one();
+    $vot = new User_controller();
+    $votes = $vot->loadAll();
+    $vote = $vot->one();

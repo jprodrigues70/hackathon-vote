@@ -12,6 +12,6 @@
         public $actions = ['login', 'logout'];
     }
 
-    $obj = new User_controller();
-    $users = $obj->loadAll();
-    $user = $obj->one();
+    $usr = new User_controller();
+    $users = $usr->loadAll();
+    $user = $usr->one();

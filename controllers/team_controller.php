@@ -3,9 +3,9 @@
     require_once(__DIR__ . '/../models/team.php');
 
     class Team_controller extends \Controller\Base {
-        public $actions = ['read'];
+        public $actions = ['store'];
     }
 
-    $obj = new User_controller();
-    $users = $obj->loadAll();
-    $user = $obj->one();
+    $tm = new Team_controller();
+    $teams = $tm->loadAll();
+    $team = $tm->one();

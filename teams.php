@@ -1,3 +1,4 @@
+<?php $contexts = ['competitor', 'criteria']; ?>
 <?php require_once('heart/pulse.php'); ?>
 <?php Session::is_up(); ?>
 <!DOCTYPE html>
@@ -10,20 +11,23 @@
     <section class="container">
       <h1>Equipes</h1>
       <div class="content-align">
+
+          <?php foreach ($teams as $key => $team): ?>
           <div class="card" data-modal="team2">
-              <h3>Equipe 2</h3>
+              <h3><?php Prints::it($team, 'name') ?></h3>
               <ul>
-                <li>Priscila Santos de Jesus- Prado-BA</li>
-                <li>Maria das Graças Santos Mendes - Prado-BA</li>
-                <li>Katiucia Eça - Prado-BA</li>
-                <li>Gerusa Sales - Prado-BA</li>
+                <?php foreach ($competitors as $key => $competitor): ?>
+                    <?php if ($team->id == $competitor->teams_id): ?>
+                        <li><?php Prints::it($competitor, 'name') ?></li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
               </ul>
           </div>
           <div class="gt-modal">
               <div id="team2" class="modal">
                   <button class="modal-close" type="button" name="button">×</button>
                   <div class="modal-header">
-                      <h1>Equipe 2</h1>
+                      <h1><?php Prints::it($team, 'name') ?></h1>
                   </div>
                   <div class="modal-body">
                       <form class="gt-form text-center" action="index.html" method="post">
@@ -35,6 +39,7 @@
                   </div>
               </div>
           </div>
+        <?php endforeach; ?>
       </div>
     </section>
     <?php include_once('includes/_footer.inc') ?>
