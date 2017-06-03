@@ -26,21 +26,39 @@
             $_REQUEST['users_id'] = $_SESSION['id'];
 
             $votes = $_REQUEST;
-
-            foreach ($votes['criterias_id'] as $key => $criteria) {
-                $_REQUEST['criterias_id'] = $criteria;
-                $_REQUEST['grade'] = $votes['grade'][$key];
-                $obj = new $this->model($_REQUEST);
-                try {
-                    $obj->insert();
-                    $_SESSION['msg'] = 'success"><button type="button" class="close"></button><p>Obrigado pelo seu voto! :D</p>';
-                } catch (\PDOException $e) {
-                    $_SESSION['msg'] = 'danger"><button type="button" class="close"></button><p>Houve um erro. Tem certeza que ainda não votou nessa equipe?</p>';
-                    header('Location:'.$this->location);
+            if (is_array($_REQUEST['criterias_id'])) {
+                if (!empty($_REQUEST['criterias_id'])) {
+                    foreach ($votes['criterias_id'] as $key => $criteria) {
+                        $_REQUEST['criterias_id'] = $criteria;
+                        $_REQUEST['grade'] = $votes['grade'][$key];
+                        $obj = new $this->model($_REQUEST);
+                        try {
+                            $obj->insert();
+                            $_SESSION['msg'] = 'success"><button type="button" class="close"></button><p>Obrigado pelo seu voto! :D</p>';
+                        } catch (\PDOException $e) {
+                            $_SESSION['msg'] = 'danger"><button type="button" class="close"></button><p>Houve um erro. Tem certeza que ainda não votou nessa equipe?</p>';
+                            header('Location:'.$this->location);
+                        }
+                    }
                 }
+                header('Location:'.$this->location);
+            } else {
+                if (!empty($_REQUEST['teams_id'])) {
+                    foreach ($votes['teams_id'] as $key => $team) {
+                        $_REQUEST['teams_id'] = $team;
+                        $_REQUEST['grade'] = $votes['grade'][$key];
+                        $obj = new $this->model($_REQUEST);
+                        try {
+                            $obj->insert();
+                            $_SESSION['msg'] = 'success"><button type="button" class="close"></button><p>Obrigado pelo seu voto! :D</p>';
+                        } catch (\PDOException $e) {
+                            $_SESSION['msg'] = 'danger"><button type="button" class="close"></button><p>Houve um erro. Tem certeza que ainda não votou neste critério?</p>';
+                            header('Location:'.$this->location);
+                        }
+                    }
+                }
+                header('Location: ../criteria');
             }
-            header('Location:'.$this->location);
-
         }
     }
 
