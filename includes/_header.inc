@@ -8,8 +8,9 @@
       <nav>
         <ul>
           <a href="index"><li class="active">Ranking</li></a>
-          <a href="criterios"><li>Critérios</li></a>
+          <a href="criteria"><li>Critérios</li></a>
           <a href="teams"><li>Equipes</li></a>
+          <a href="logout"><li>Sair</li></a>
         </ul>
       </nav>
     </header>
