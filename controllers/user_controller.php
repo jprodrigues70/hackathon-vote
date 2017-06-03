@@ -10,6 +10,15 @@
         public $fillneeded = ['username' => 'username'];
 
         public $actions = ['login', 'logout'];
+
+        function __construct() {
+          if (session_status() != PHP_SESSION_ACTIVE) session_start();
+          if (!empty($_SESSION['on']) && $_SESSION['level'] == 90) {
+            $this->actions = ['login', 'logout', 'delete', 'store'];
+            $this->location = '../users';
+          }
+          parent::__construct();
+        }
     }
 
     $usr = new User_controller();
