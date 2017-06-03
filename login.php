@@ -1,3 +1,4 @@
+<?php require_once('heart/pulse.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,9 +14,9 @@
       <div class="text-center">
           <img class="brand" src="assets/img/marca.png" alt="Desafios Bahia Hackathon" title="Desafios Bahia Hackathon" />
       </div>
-      <form action="" method="POST" class="gt-form">
+      <form action="controllers/user_controller.php" method="POST" class="gt-form">
         <input placeholder="Username" id="username" type="text" name="username" required>
-        <button type="submit" class="btn success center">Entrar</button>
+        <button type="submit" class="btn success center" name="action" value="login">Entrar</button>
       </form>
     </section>
     <script type="text/javascript" src="bower_components/gaintime/js/gaintime.min.js"></script>

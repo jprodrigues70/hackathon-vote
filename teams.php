@@ -1,3 +1,4 @@
+<?php require_once('heart/pulse.php'); ?>
 <!DOCTYPE html>
 <html>
   <head>
