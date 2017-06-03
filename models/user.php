@@ -2,7 +2,7 @@
     require_once(__DIR__ . '/../heart/model/base.php');
 
     class User extends \Model\Base {
-        public $fillable = ['username', 'name'];
+        public $fillable = ['username', 'name', 'level'];
 
         /**
          * Verify credentials for system access
