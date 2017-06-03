@@ -23,7 +23,7 @@
           <tbody class="text-center">
               <?php foreach ($users as $key => $user): ?>
               <tr>
-                  <td><?php Prints::it($user, 'name') ?></td>
+                  <td><?php Prints::it($user, 'username') ?></td>
                   <td>
                     <a class="action info" href="edit-user<?php Prints::it($user, 'id', 'get/id') ?>">Editar</a>
                     <a data-ask="Tem certeza que deseja excluir o usuário <?php Prints::it($user, 'name'); ?>?" class="action danger" href="controllers/user_controller<?php Prints::it($user, 'id', 'get/delete') ?>">Excluir</a>
