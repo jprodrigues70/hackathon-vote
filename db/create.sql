@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS `votes`.`users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(255) NOT NULL,
   `name` VARCHAR(255) NULL,
+  `level` INT NOT NULL,
   `createdAt` DATETIME NOT NULL,
   `updatedAt` DATETIME NOT NULL,
   PRIMARY KEY (`id`),

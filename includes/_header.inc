@@ -7,10 +7,14 @@
       </label>
       <nav>
         <ul>
-          <a href="index"><li class="active">Ranking</li></a>
-          <a href="criteria"><li>Critérios</li></a>
-          <a href="teams"><li>Equipes</li></a>
+          <a href="."><li <?php Session::is_active(['', 'index']); ?>>Ranking</li></a>
+          <?php if(Session::permission(50)): ?>
+          <a href="criteria"><li <?php Session::is_active('criteria'); ?>>Critérios</li></a>
+          <a href="teams"><li <?php Session::is_active('teams'); ?>>Equipes</li></a>
           <a href="controllers/user_controller?logout"><li>Sair</li></a>
+          <?php else: ?>
+          <a href="login"><li>Login</li></a>
+          <?php endif; ?>
         </ul>
       </nav>
     </header>
