@@ -86,6 +86,7 @@ CREATE TABLE IF NOT EXISTS `votes`.`votes` (
   `teams_id` INT UNSIGNED NOT NULL,
   PRIMARY KEY (`id`, `users_id`, `criterias_id`, `teams_id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  UNIQUE KEY `uct` (`users_id`,`criterias_id`,`teams_id`) USING BTREE,
   INDEX `fk_votes_users1_idx` (`users_id` ASC),
   INDEX `fk_votes_criterias1_idx` (`criterias_id` ASC),
   INDEX `fk_votes_teams1_idx` (`teams_id` ASC),
