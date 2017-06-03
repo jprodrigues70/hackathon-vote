@@ -20,3 +20,4 @@
     $crt = new Criteria_controller();
     $criterias = $crt->loadAll();
     $criteria = $crt->one();
+    $criteria_size = sizeof($criterias);

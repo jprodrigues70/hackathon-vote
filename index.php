@@ -1,3 +1,4 @@
+<?php $contexts = ['team', 'criteria']; ?>
 <?php require_once('heart/pulse.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,6 @@
     <?php else: ?>
         <?php include_once('includes/_header.inc') ?>
     <?php endif; ?>
-
     <section>
       <h1>Ranking</h1>
 
@@ -20,39 +20,19 @@
           <th>Pontuação</th>
         </thead>
         <tbody>
-          <tr>
-            <td>
-              <img src="assets/img/minilogo.png" alt="Lâmpada" title="Ouro!" class="gold">
-              Equipe 1
-            </td>
-            <td class="text-right">
-              <div class="bar" data-percentage="90%" data-color="success" data-tooltip="Test" data-text="90 pts">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="assets/img/minilogo.png" alt="Lâmpada" title="Prata!" class="silver">
-              Equipe 2
-            </td>
-            <td class="text-right">
-              <div class="bar" data-percentage="50%" data-color="warning" data-tooltip="Test" data-text="50 pts">
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img src="assets/img/minilogo.png" alt="Lâmpada" title="Bronze!" class="bronze">
-              Equipe 3
-            </td>
-            <td class="text-right">
-              <div class="bar" data-percentage="20%" data-color="danger" data-tooltip="Test" data-text="20 pts">
-            </td>
-          </tr>
-          <tr>
-            <td>Equipe 4</td>
-            <td class="text-right">
-              <div class="bar" data-percentage="0%" data-color="success" data-tooltip="Test" data-text="0 pts">
-            </td>
-          </tr>
+        <?php foreach ($results as $key => $result): ?>
+            <tr>
+                <td>
+                    <?php if ($key < 3): ?>
+                        <img src="assets/img/minilogo.png" alt="Lâmpada" <?php $tm->getMedal($key); ?>>
+                    <?php endif; ?>
+                    <?php Prints::it($result, 'name'); ?>
+                </td>
+                <td class="text-right">
+                <div class="bar" data-percentage="<?php echo (($result->result*10/$criteria_size)); ?>%" data-color="success" data-tooltip="<?php Prints::it($result, 'result') ;?> pts" data-text="<?php Prints::it($result, 'result') ;?> pts">
+                </td>
+            </tr>
+        <?php endforeach; ?>
         </tbody>
       </table>
     </section>
