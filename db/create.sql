@@ -78,7 +78,7 @@ DROP TABLE IF EXISTS `votes`.`votes` ;
 
 CREATE TABLE IF NOT EXISTS `votes`.`votes` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `value` INT NOT NULL,
+  `grade` INT NOT NULL,
   `createdAt` DATETIME NOT NULL,
   `updatedAt` DATETIME NOT NULL,
   `users_id` INT UNSIGNED NOT NULL,

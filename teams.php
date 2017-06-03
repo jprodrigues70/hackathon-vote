@@ -9,11 +9,12 @@
   <body>
     <?php include_once('includes/_header.inc') ?>
     <section class="container">
+      <?php Session::msg(); ?>
       <h1>Equipes</h1>
       <div class="content-align">
 
           <?php foreach ($teams as $key => $team): ?>
-          <div class="card" data-modal="team2">
+          <div class="card" data-modal="team<?php Prints::it($team, 'id'); ?>">
               <h3><?php Prints::it($team, 'name') ?></h3>
               <ul>
                 <?php foreach ($competitors as $key => $competitor): ?>
@@ -24,16 +25,22 @@
               </ul>
           </div>
           <div class="gt-modal">
-              <div id="team2" class="modal">
+              <div id="team<?php Prints::it($team, 'id'); ?>" class="modal">
                   <button class="modal-close" type="button" name="button">×</button>
                   <div class="modal-header">
                       <h1><?php Prints::it($team, 'name') ?></h1>
                   </div>
                   <div class="modal-body">
-                      <form class="gt-form text-center" action="index.html" method="post">
-                          <label class="text-left" for="c1">XXX</label>
-                          <input data-mirror="c1" type="range" name="grade[]" min="2" max="10" oninput="">
-                          <span id="c1" class="tag info">10</span>
+                      <form class="gt-form text-center" action="controllers/vote_controller" method="post">
+                          <input type="hidden" name="teams_id" value="<?php Prints::it($team, 'id'); ?>">
+                          <?php foreach ($criterias as $key => $criteria): ?>
+                              <input type="hidden" name="criterias_id[]" value="<?php Prints::it($criteria, 'id'); ?>">
+                              <label class="text-left" for="c<?php Prints::it($criteria, 'id') ?>">
+                                  <h3><?php Prints::it($criteria, 'title') ?></h3>
+                              </label>
+                              <input data-mirror="c<?php Prints::it($criteria, 'id') ?>" type="range" name="grade[]" min="2" max="10" oninput="">
+                              <span id="c<?php Prints::it($criteria, 'id') ?>" class="tag info">0</span>
+                          <?php endforeach; ?>
                           <button class="btn success full" type="submit" name="action" value="store">VOTAR</button>
                       </form>
                   </div>

@@ -2,5 +2,5 @@
     require_once(__DIR__ . '/../heart/model/base.php');
 
     class Vote extends \Model\Base {
-        public $fillable = ['value', 'users_id', 'criterias_id', 'teams_id'];
+        public $fillable = ['grade', 'users_id', 'criterias_id', 'teams_id'];
     }
