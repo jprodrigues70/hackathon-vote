@@ -1,4 +1,5 @@
 <?php require_once('heart/pulse.php'); ?>
+<?php Session::is_up(); ?>
 <!DOCTYPE html>
 <html>
   <head>
