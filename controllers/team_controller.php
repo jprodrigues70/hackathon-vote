@@ -47,4 +47,4 @@
     $teams = $tm->loadAll();
     $team = $tm->one();
     $results = $tm->getRanking();
-    $short_results = $tm->getRanking('ASC', 'Limit 3');
+    $short_results = array_reverse($tm->getRanking('DESC', 'Limit 3'));
