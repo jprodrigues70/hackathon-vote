@@ -11,7 +11,7 @@
           <a href="users"><li <?php Session::is_active('users'); ?>>Usuários</li></a>
           <a href="criterias"><li <?php Session::is_active('criterias'); ?>>Critérios</li></a>
           <a href="team"><li <?php Session::is_active('team'); ?>>Equipes</li></a>
-          <a href="controllers/vote_controller?clear"><li <?php Session::is_active('competitors'); ?>>Limpar Votos</li></a>
+          <a href="controllers/vote_controller?clear"><li <?php Session::is_active('competitors'); ?> data-ask="Você tem certeza que quer zerar os votos?">Limpar Votos</li></a>
           <a href="competitors"><li <?php Session::is_active('competitors'); ?>>Competidores</li></a>
           <li class="dropdown-right" role="button" tabindex="0">
               <span>Páginas do Juri</span>
