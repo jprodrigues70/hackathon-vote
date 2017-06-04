@@ -8,7 +8,7 @@
       <nav>
         <ul>
           <?php if(Session::permission(90)): ?>
-          <a href="users"><li <?php Session::is_active('criterias'); ?>>Usuários</li></a>
+          <a href="users"><li <?php Session::is_active('users'); ?>>Usuários</li></a>
           <a href="criterias"><li <?php Session::is_active('criterias'); ?>>Critérios</li></a>
           <a href="team"><li <?php Session::is_active('team'); ?>>Equipes</li></a>
           <a href="competitors"><li <?php Session::is_active('competitors'); ?>>Competidores</li></a>

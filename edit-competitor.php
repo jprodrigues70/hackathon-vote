@@ -1,5 +1,6 @@
 <?php $contexts = ['team']; ?>
 <?php require_once('heart/pulse.php'); ?>
+<?php Session::is_up()->pagePermission(90); ?>
 <!DOCTYPE html>
 <html>
   <head>

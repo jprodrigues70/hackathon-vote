@@ -1,5 +1,6 @@
 <?php $contexts = ['team', 'criteria', 'competitor']; ?>
 <?php require_once('heart/pulse.php'); ?>
+<?php Session::is_up()->pagePermission(50); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,7 +8,7 @@
   </head>
   <body class="panel">
     <?php if (Session::permission(90)): ?>
-        <?php include_once('includes/_headeradmin.inc') ?>
+        <?php include_once('includes/_header.inc') ?>
     <?php else: ?>
         <?php include_once('includes/_header.inc') ?>
     <?php endif; ?>
