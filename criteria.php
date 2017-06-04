@@ -18,7 +18,7 @@
 
               <p><?php Prints::it($criteria, 'description') ?></p>
 
-              <span class="btn success" data-modal="criteria<?php Prints::it($criteria, 'id'); ?>">Votar</span>
+              <!-- <span class="btn success" data-modal="criteria<?php //Prints::it($criteria, 'id'); ?>">Votar</span> -->
           </div>
           <div class="gt-modal">
               <div id="criteria<?php Prints::it($criteria, 'id'); ?>" class="modal">
