@@ -15,6 +15,7 @@
             $this->location = '../teams';
           }
           if (!empty($_SESSION['on']) && $_SESSION['level'] == 90) {
+              $this->actions = ['clear'];
               $this->location = '../team';
           }
 
@@ -59,6 +60,12 @@
                 }
                 header('Location: ../criteria');
             }
+        }
+
+        public function clear() {
+            $obj = new $this->model($_REQUEST);
+            $obj->remove('*');
+            header('Location: ../');
         }
     }
 
