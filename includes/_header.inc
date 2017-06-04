@@ -8,8 +8,8 @@
       <nav>
         <ul>
           <a href="."><li <?php Session::is_active(['', 'index']); ?>>Resultado</li></a>
-          <a href="ranking"><li <?php Session::is_active(['ranking']); ?>>Ranking</li></a>
           <?php if(Session::permission(50)): ?>
+          <a href="ranking"><li <?php Session::is_active(['ranking']); ?>>Ranking</li></a>
           <a href="criteria"><li <?php Session::is_active('criteria'); ?>>Critérios</li></a>
           <a href="teams"><li <?php Session::is_active('teams'); ?>>Equipes</li></a>
           <a href="controllers/user_controller?logout"><li>Sair</li></a>
